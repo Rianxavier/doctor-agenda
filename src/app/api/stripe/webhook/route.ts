@@ -32,16 +32,15 @@ export const POST = async (request: Request) => {
         customer: string;
       };
 
-      const { subscription, subscription_details } = event.data.object
-        .parent as unknown as {
-        subscription: string;
+      const { subscription_details } = event.data.object.parent as unknown as {
         subscription_details: {
+          subscription: string;
           metadata: {
             userId: string;
           };
         };
       };
-      if (!subscription) {
+      if (!subscription_details.subscription) {
         throw new Error("Subscription not found");
       }
       const userId = subscription_details.metadata.userId;
@@ -51,7 +50,7 @@ export const POST = async (request: Request) => {
       await db
         .update(usersTable)
         .set({
-          stripeSubscriptionId: subscription,
+          stripeSubscriptionId: subscription_details.subscription,
           stripeCustomerId: customer,
           plan: "essential",
         })
