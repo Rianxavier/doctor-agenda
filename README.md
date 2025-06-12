@@ -1,37 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DoctorAgenda - Plataforma de Agendamentos para Clínicas 🏥
 
-## Getting Started
+Bem-vindo ao **DoctorAgenda**, uma plataforma SaaS desenvolvida durante o Bootcamp da Full Stack Club. Com ela, clínicas podem gerenciar médicos, pacientes e agendamentos de forma eficiente, além de acompanhar métricas por meio de um dashboard moderno.
 
-First, run the development server:
+---
+
+## ✨ Funcionalidades
+
+- **Autenticação Segura**
+  - Criação de conta
+  - Login com email e senha
+  - Login com Google (OAuth)
+
+- **Gestão de Clínica**
+  - Criação de clínicas
+  - Aquisição de planos pagos via Stripe
+
+- **Gerenciamento de Pacientes**
+  - Cadastro e listagem de pacientes
+
+- **Gerenciamento de Médicos**
+  - Cadastro e listagem de médicos
+
+- **Agendamentos**
+  - Criação, visualização e gerenciamento de agendamentos
+
+- **Dashboard Interativo**
+  - Acompanhamento de métricas com dados em tempo real
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Next.js:** Framework React Full Stack
+- **React:** Construção de interfaces reativas
+- **TypeScript:** Tipagem estática para maior confiabilidade
+- **TailwindCSS:** Estilização rápida e moderna
+- **Shadcn/UI:** Componentes acessíveis e reutilizáveis
+- **Drizzle ORM:** Abstração do banco de dados PostgreSQL
+- **PostgreSQL:** Banco de dados relacional robusto
+- **NeonDB:** Hospedagem moderna para PostgreSQL
+- **Better-auth:** Autenticação customizada para Next.js
+- **Google Cloud Platform:** OAuth com Google
+- **Stripe:** Processamento de pagamentos e assinaturas
+- **React Hook Form:** Manipulação de formulários
+- **Zod:** Validação de dados
+- **Prettier + ESLint:** Padronização e qualidade de código
+
+---
+
+## ⚙️ Instalação
+
+### Pré-requisitos
+
+- Node.js >= 16.0
+- Conta no [NeonDB](https://neon.tech)
+- Conta no [Google Cloud Console](https://console.cloud.google.com)
+- Conta no [Stripe](https://stripe.com)
+  
+### Passo a passo
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/clinic-saas.git
+cd clinic-saas
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Configure as variáveis de ambiente com base no exemplo abaixo:
+
+```env
+# Banco de Dados
+DATABASE_URL="sua_url_do_banco_postgresql"
+
+# Better Auth
+BETTER_AUTH_SECRET="sua_chave_secreta_do_auth"
+BETTER_AUTH_URL="http://localhost:3000/api/auth"
+
+# Google OAuth
+GOOGLE_CLIENT_ID="sua_google_client_id"
+GOOGLE_CLIENT_SECRET="sua_google_client_secret"
+
+# Stripe
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="sua_chave_publica_stripe"
+STRIPE_SECRET_KEY="sua_chave_secreta_stripe"
+STRIPE_ESSENTIAL_PLAN_PRICE_ID="id_do_plano_essencial"
+STRIPE_WEBHOOK_SECRET="webhook_secret_stripe"
+
+# URLs da aplicação
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL="url_do_portal_do_cliente_stripe"
+```
+
+4. Rode as migrações do banco de dados:
+
+```bash
+npx drizzle-kit push
+```
+
+5. Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Acesse o aplicativo** 🌐
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Abra seu navegador e acesse [http://localhost:3000](http://localhost:3000).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Observações** 📌 
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# doctor-agenda
+Este projeto foi desenvolvido com fins educacionais no Bootcamp da Full Stack Club. Você pode expandi-lo adicionando testes, envio de emails, filtros de agendamentos, relatórios, permissões por função, entre outros.
